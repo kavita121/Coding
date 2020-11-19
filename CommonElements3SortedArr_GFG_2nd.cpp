@@ -1,9 +1,8 @@
-// { Driver Code Starts
+//Common elements in 3 sorted array
+//Does not work with duplicate common 
+
 #include <bits/stdc++.h>
 using namespace std;
-
-
- // } Driver Code Ends
 
 
 class Solution
@@ -36,7 +35,7 @@ class Solution
 
 };
 
-// { Driver Code Starts.
+
 
 int main ()
 {
@@ -62,4 +61,4 @@ int main ()
             cout << res[i] << " "; 
         cout << endl;
     }
-}  // } Driver Code Ends
+}
