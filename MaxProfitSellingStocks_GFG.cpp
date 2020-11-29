@@ -1,4 +1,4 @@
-//Maximum profit by buying and selling
+//Maximum profit by buying and selling a share
 
 #include<bits/stdc++.h>
 #define ll long long
