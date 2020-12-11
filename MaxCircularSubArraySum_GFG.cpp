@@ -7,26 +7,32 @@ int circularSubarraySum(int arr[], int n)
 {
     if(n == 1)
         return arr[0];
-    int sum=0;
-    for(int i=0; i<n; i++)
-        sum += arr[i];
-    int maxSoFar = arr[0], maxEndingHere = arr[0], minEndingHere = arr[0], minSoFar = arr[0];
-    int i = 1;
-    do{
-        maxEndingHere = max(maxEndingHere + arr[i], arr[i]);
-        maxSoFar = max(maxSoFar, maxEndingHere);
         
-        minEndingHere = min(minEndingHere + arr[i], arr[i]);
+    int sumArray = 0;
+    
+    for(int i=0; i<n; i++)
+        sumArray += arr[i];
+        
+    int minSoFar=arr[0], minEndingHere=arr[0];
+    int maxSoFar=arr[0], maxEndingHere=arr[0];
+    
+    for(int i=1; i<n; i++)
+    {
+        //Finding minimum
+        minEndingHere = min(arr[i], arr[i]+minEndingHere);
         minSoFar = min(minEndingHere, minSoFar);
         
-        i = (i+1);
-        
-    }while( i < n);
+        //Finding maximum
+        maxEndingHere = max(arr[i], arr[i]+maxEndingHere);
+        maxSoFar = max(maxEndingHere, maxSoFar);
+    }
     
-    if(sum == minSoFar)
+    int CircularSum = sumArray - minSoFar;
+    
+    if(sumArray == minSoFar)
         return maxSoFar;
-    
-    return max(maxSoFar, sum-minSoFar);
+        
+    return max(maxSoFar, CircularSum);
 }
 
 
