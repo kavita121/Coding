@@ -18,7 +18,7 @@ int main() {
 		cout<<encode(str)<<endl;
 	}
 	return 0;
-}// } Driver Code Ends
+}
 
 
 char *encode(char *src)
