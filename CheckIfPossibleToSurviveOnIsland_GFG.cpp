@@ -1,5 +1,6 @@
 //Check if it is possible to survive on Island
 //CORRECT GFG
+//Greedy 
 
 void isSurvivalPossible(int s, int n, int m)
 {
