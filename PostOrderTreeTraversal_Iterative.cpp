@@ -1,5 +1,6 @@
-//Preorder Tree Traversal
-//Recursive solution 
+//Postorder Tree Traversal
+//Iterative solution 
+//Working
 
 
 #include<bits/stdc++.h>
@@ -20,15 +21,43 @@ struct Node
 
 typedef struct Node Node;
 
-//function for rcursive preorder traversal
+//function for iterative postorder traversal
 
-void preorderIterative(Node * root)
+void postorderIterative(Node * root)
 {
-    if(root == nullptr)
-        return;
-    cout<<root->data<<" ";
-    preorderIterative(root->left);
-    preorderIterative(root->right);
+    stack<Node*> s;
+    Node *t;
+    t = root;
+
+    s.push(t);
+
+    stack<int> out;
+
+    //4 2 7 8 5 6 3 1
+
+    while(!s.empty())
+    {
+        t = s.top();
+        out.push(t->data);
+        s.pop();
+
+        if(t->left != nullptr)
+        {
+            s.push(t->left);
+        }
+        if(t->right != nullptr)
+        {
+            s.push(t->right);
+        }
+        
+    }
+
+    while(!out.empty())
+    {
+        int x = out.top();
+        cout<<x<<" ";
+        out.pop();
+    }
 }
 
 int main()
@@ -50,12 +79,11 @@ int main()
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);
-    root->left->left->right = new Node(9);
     root->right->left = new Node(5);
     root->right->right = new Node(6);
     root->right->left->left = new Node(7);
     root->right->left->right = new Node(8);
  
-    preorderIterative(root);
+    postorderIterative(root);
     return 0;
 }

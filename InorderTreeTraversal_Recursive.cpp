@@ -1,4 +1,4 @@
-//Preorder Tree Traversal
+//Inorder Tree Traversal
 //Recursive solution 
 
 
@@ -20,30 +20,30 @@ struct Node
 
 typedef struct Node Node;
 
-//function for rcursive preorder traversal
+//function for recursive inorder traversal
 
-void preorderIterative(Node * root)
+void inorderIterative(Node * root)
 {
     if(root == nullptr)
         return;
+    inorderIterative(root->left);
     cout<<root->data<<" ";
-    preorderIterative(root->left);
-    preorderIterative(root->right);
+    inorderIterative(root->right);
 }
 
 int main()
 {
     /* Construct the following tree
                1
-             /   \
-            /     \
-           2       3
-          /      /   \
-         /      /     \
-        4      5       6
-              / \
-             /   \
-            7     8
+             /    \
+            /      \
+           2        3
+          /       /   \
+         /       /     \
+        4       5       6
+         \     / \
+          9   /   \
+             7     8
     */
  
     Node* root = new Node(1);
@@ -56,6 +56,6 @@ int main()
     root->right->left->left = new Node(7);
     root->right->left->right = new Node(8);
  
-    preorderIterative(root);
+    inorderIterative(root);
     return 0;
 }
