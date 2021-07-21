@@ -115,7 +115,6 @@ int main() {
 }
 
 
-
 //solution
 vector<int> diagonal(Node *root)
 {

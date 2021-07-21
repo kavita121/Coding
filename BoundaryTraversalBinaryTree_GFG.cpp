@@ -123,7 +123,6 @@ public:
         ans.push_back(root->data);
         
         //for left boundary
-
          Node *curr = root->left;
         while(curr != NULL)
         {
