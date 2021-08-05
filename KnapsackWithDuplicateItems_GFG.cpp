@@ -8,6 +8,7 @@ using namespace std;
 
 class Solution{
 public:
+
     int knapSack(int n, int w, int val[], int wt[])
     {
         int dp[n+1][w+1];

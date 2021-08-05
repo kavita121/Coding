@@ -10,8 +10,6 @@ class Solution{
 
   public:
   
-    
-    
 	int countSubsetSum(int arr[], int n, int sum)  
 	{
 
