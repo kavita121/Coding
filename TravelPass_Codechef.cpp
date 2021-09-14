@@ -31,7 +31,24 @@ int main()
     cin.tie(NULL);
     int i, j;
     
-    
+    test_loop
+    {
+        int n, a, b;
+        cin>>n>>a>>b;
+
+        string s;
+        cin>>s;
+        int ans = 0;
+
+        for(char x: s)
+        {
+            if(x == '0')
+                ans += a;
+            else
+                ans += b;
+        }
+        cout<<ans<<endl;
+    }
     
     return 0;
 }
