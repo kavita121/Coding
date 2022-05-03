@@ -21,3 +21,40 @@ public:
         }
     }
 };
+
+
+// Fastest
+
+class Solution {
+public:
+    
+    void rotate(vector<int>& nums, int k) {
+        k %= nums.size();
+        
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin()+k);
+        reverse(nums.begin()+k, nums.end());
+
+    }
+};
+
+
+// Similar to 2nd but slower
+
+class Solution {
+public:
+    void reverseArray(vector<int>& nums, int l, int h)
+    {
+        for(int i=l, j = h-1; i<j; i++, j--)
+            swap(nums[i], nums[j]);
+    }
+    
+    void rotate(vector<int>& nums, int k) {
+        k %= nums.size();
+        
+        reverseArray(nums, 0, nums.size());
+        reverseArray(nums, 0, k);
+        reverseArray(nums, k, nums.size());
+
+    }
+};
